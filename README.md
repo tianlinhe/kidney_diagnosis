@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-Chronic kidney disease (CKD) has many causes, such as diabetic nephropathy (DN), vasculitis, IgA nephropathy. The aim of this project is to **visualise these CKD aetiologies in two dimension** based on** peptidomic profiles** that **maximise the separation between different aetiologies**. For this purpose, I developed a pipline built of UMAP and SVM:
+Chronic kidney disease (CKD) has many causes, such as diabetic nephropathy (DN), vasculitis, IgA nephropathy. The aim of this project is to **visualise these CKD aetiologies in two dimension** based on **peptidomic profiles** that **maximise the separation between different aetiologies**. For this purpose, I developed a pipline built on UMAP and SVM:
 
 <img src="figures/pipeline_overview.png" width="700">
 
@@ -65,20 +65,31 @@ Provides helper functions to plot scatter plots with either legend as bar or as 
 
 Create useful abbreviations of path names
 
-### Executing the pipeline
+### Executing the Pipeline
 
-* `umap_unsupervised.ipynb` native UMAP embeddings of peptidomic data from DN and controls
-* `umap_supervised_dn_biomarker.ipynb` **supervised UMAP** embeddings peptidomic data from DN and controls, with **preselction of biomarkers**
-* `umap_supervised_freq.ipynb` **supervised UMAP** embeddings of peptidomic data from DN and controls, **varying frequency thresholds**
-* `umap_supervised_3disease.ipynb` **supervised UMAP** embeddings of peptidomic data from **DN, vasculitis and controls**, with freq_threshold=$30\%$
+#### `umap_unsupervised.ipynb`
+
+Naïve UMAP embeddings of peptidomic data from DN and controls
+
+#### `umap_supervised_dn_biomarker.ipynb` 
+
+**Supervised UMAP** embeddings peptidomic data from DN and controls, with **preselction of biomarkers**
+
+#### `umap_supervised_freq.ipynb` 
+
+**Supervised UMAP** embeddings of peptidomic data from DN and controls, **varying frequency thresholds**
+
+#### `umap_supervised_3disease.ipynb` 
+
+**Supervised UMAP** embeddings of peptidomic data from **DN, vasculitis and controls**, with freq_threshold=30%
 
 ## Results
 
 ### 1. Unsupervised UMAP
 
-With UMAP alone, DN and controls form two clusters overlap. Therefore, I tried the supervised approach.
+With UMAP alone, DN and controls form two clusters with overlap. Therefore, I worked the supervised approach to improve separation.
 
-![](figures/unsupervised_1.tiff)
+![](figures/unsupervised_1.png)
 
 ### 2. Supervised UMAP between DN and controls
 
@@ -86,11 +97,11 @@ With UMAP alone, DN and controls form two clusters overlap. Therefore, I tried t
 
 I tried to preselect know biomarkers to DN, to see if accuracy can be improved. (The answer is yes!)
 
-![](figures/supervised_dn_dnbiomarker.tiff)
+![](figures/supervised_dn_dnbiomarker.png)
 
 #### Approach 2: Varying the frequency threshold of peptides
 
-I tried three frequency thresholds, $30\%$, $50\%$ and $70\%$. It shows that with $30\%$, the accuracy is the highest, with balanced specificity and sensitivity. Therefore, $30\%$ will be used for as a default in further analysis.
+I tried three frequency thresholds, 30%​, 50% and 70%. It shows that with 30%, the accuracy is the highest, with balanced specificity and sensitivity. Therefore, 30% will be set as a default of the pipeline.
 
 ![](figures/pipeline_freq.png)
 
@@ -107,4 +118,4 @@ I applied the pipeline in the peptidomic data of DN, vasculitis and controls. It
 
 * The supervised UMAP approach has a potential in differential diagnosis of kidney diseases
 * With the pipeline one can visualise different CKD aetiologies on a peptide-level
-* The future plan is to collect more samples, so that the diseases have a balanced size
+* The future plan is to collect more samples, so that the disease groups are balanced in size
