@@ -1,6 +1,6 @@
 # Visualisation of peptidomic data using supervised UMAP
 
-**UMAP** is a **dimensionality reduction** technique for non-linear embedding of high-dimensional data. In this project, UMAP is used to reduce the high-dimensional ($>4000$ features) peptidomic data. A **supervised learning** algorithm, **SVM**, is used to optimise the UMAP procedure such that patients with different kidney diseases can be **clustered** at **two-dimensional**. The detail description of UMAP can be found at: [Imcinnes/umap](https://github.com/lmcinnes/umap)
+**UMAP** is a **dimensionality reduction** technique for non-linear embedding of high-dimensional data. In this project, UMAP is used to reduce the high-dimensional (>4000​ features) peptidomic data. A **supervised learning** algorithm, **SVM**, is used to optimise the UMAP procedure such that patients with different kidney diseases can be **clustered** at **two-dimensional**. The detail description of UMAP can be found at: [Imcinnes/umap](https://github.com/lmcinnes/umap)
 
 ## Project Overview
 
@@ -89,7 +89,7 @@ Naïve UMAP embeddings of peptidomic data from DN and controls
 
 With UMAP alone, DN and controls form two clusters with overlap. Therefore, I worked the supervised approach to improve separation.
 
-![](figures/unsupervised_1.png)
+<img src="figures/unsupervised_1.png" width="700">
 
 ### 2. Supervised UMAP between DN and controls
 
@@ -97,7 +97,7 @@ With UMAP alone, DN and controls form two clusters with overlap. Therefore, I wo
 
 I tried to preselect know biomarkers to DN, to see if accuracy can be improved. (The answer is yes!)
 
-![](figures/supervised_dn_dnbiomarker.png)
+<img src="figures/supervised_biomarker.png" width="700">
 
 #### Approach 2: Varying the frequency threshold of peptides
 
